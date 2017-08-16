@@ -1,4 +1,5 @@
 # Minicurso 'Introdução ao Ruby on Rails' edição Semcomp 20
+Minicurso cuja proposta é trazer um breve conhecimento sobre o mundo do Desenvolvimento Web, através do uso do consagrado Framework Ruby on Rails
 ## Instruções de preparação do ambiente
 ### Configurações utilizadas neste curso
 
@@ -117,11 +118,11 @@ Comando | Significado | Função
 
 Comando | Função
 --------|-------
-git status | Checa as mudanças ocorridas nos arquivos desde o último _commit_
-git branch | Lista todas as _branches_ existentes e indica qual delas você está utilizando
-git checkout <branch> | Troca de sua _branch_ atual para `<branch>`
-git add <directory/file> | Adiciona `<directory/file>` à area de _Stage_
-git commit | Cria um novo _commit_ com as alterações que estão na área de _Stage_
+`git status` | Checa as mudanças ocorridas nos arquivos desde o último _commit_
+`git branch` | Lista todas as _branches_ existentes e indica qual delas você está utilizando
+`git checkout <branch>` | Troca de sua _branch_ atual para `<branch>`
+`git add <directory/file>` | Adiciona `<directory/file>` à area de _Stage_
+`git commit` | Cria um novo _commit_ com as alterações que estão na área de _Stage_
 
 #### Lista de comandos Rails
 Comando | Atalho | Função
