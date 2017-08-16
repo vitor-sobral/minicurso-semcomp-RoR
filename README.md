@@ -1,5 +1,6 @@
-# Instruções para criar sua primeira aplicação Rails
-Configurações utilizadas no curso:
+# Minicurso 'Introdução ao Ruby on Rails' edição Semcomp 20
+## Instruções de preparação do ambiente
+### Configurações utilizadas neste curso
 
 Ubuntu 16.04
 
@@ -9,87 +10,128 @@ Rails 5.1.3
 
 SQLite 3.11.0
 
-## Preparação do ambiente
+### Instalando programas necessários
 
-### Git
+#### Git
 Instale o Git:
 ```
 sudo apt-get update; sudo apt-get install git
 ```
 
-### Ruby
-  Instalaremos o Ruby utilizando o gerenciador [*rbenv*](https://github.com/rbenv/rbenv).
+#### Ruby
+Instalaremos o Ruby utilizando o gerenciador [_rbenv_](https://github.com/rbenv/rbenv):
+```
+$ sudo apt-get install autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev
+$ git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+$ echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+$ echo 'eval   "$(rbenv init -)"' >> ~/.bashrc
+$ source ~/.bashrc
+$ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+```
 
-  Instale suas dependências:
+Cheque se a instalação foi ocorrida com sucesso, usando `type rbenv`. O _output_ deve estar parecido com este:
+```shell
+# Output
+rbenv is a function
+rbenv ()
+{
+    local command;
+    command="$1";
+    if [ "$#" -gt 0 ]; then
+        shift;
+    fi;
+    case "$command" in
+        rehash | shell)
+            eval "$(rbenv "sh-$command" "$@")"
+        ;;
+        *)
+            command rbenv "$command" "$@"
+        ;;
+    esac
+}
+```
+
+Agora, com o rbenv instalado (junto com o plugin ruby-build), instale a versão Ruby que desejar (em nosso caso 2.4.1):
+```
+rbenv install 2.4.1
+```
+
+Configure para utilizar essa versão globalmente (em qualquer local do _File System_):
+```
+rbenv global 2.4.1
+```
+
+Para checar se o Ruby foi instalado corretamente, use:
+```
+ruby -v
+```
+
+#### Rails
+- Usando o [Rubygems](https://rubygems.org/pages/about), instalaremos primeiramente:
+
+  - O próprio Rails:
   ```
-  $ sudo apt-get install autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev
-  $ git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-  $ echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
-  $ echo 'eval   "$(rbenv init -)"' >> ~/.bashrc
-  $ source ~/.bashrc
-  $ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+  gem install rails
   ```
-
-  Cheque com `type rbenv` se o output está idêntico a este:
-  ```shell
-  # Output
-  rbenv is a function
-  rbenv ()
-  {
-      local command;
-      command="$1";
-      if [ "$#" -gt 0 ]; then
-          shift;
-      fi;
-      case "$command" in
-          rehash | shell)
-              eval "$(rbenv "sh-$command" "$@")"
-          ;;
-          *)
-              command rbenv "$command" "$@"
-          ;;
-      esac
-  }
+  - E o gerenciador de dependências das gems:
   ```
-
-  Agora, com o rbenv instalado (junto com o plugin ruby-build), instale a versão Ruby que desejar (em nosso caso 2.4.0):
+  gem install bundler
   ```
-  rbenv install 2.4.0
-  ```
+- Instalar dependências do banco de dados (SQLite, no caso) e o NodeJS (Rails depende do _JavaScript Runtime_ do Node):
+```
+sudo apt-get install sqlite3 libsqlite3-dev nodejs-dev
+```
 
-  Configure para utilizar essa versão globalmente:
-  ```
-  rbenv global 2.4.0
-  ```
+**E agora estamos prontos para começar!**
 
-  Para checar se o Ruby foi instalado corretamente, use:
-  ```
-  ruby -v
-  ```
+\*Créditos ao [tutorial da Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-with-rbenv-on-ubuntu-16-04)
 
-### Rails
-  - Usando o [Rubygems](https://rubygems.org/pages/about), instalaremos primeiramente:
+### Editores de texto
+Questão pessoal. Recomendo estes 2 editores de texto antes de colocarmos a mão na massa. Mas claro, se tiver algum outro preferido, fique à vontade para utilizá-lo!
+- [Atom](https://atom.io/) -> (Utilizarei este)
+- [Sublime](https://www.sublimetext.com/)
 
-    O próprio Rails:
-    ```
-    gem install rails
-    ```
-    E o gerenciador de dependências das gems:
-    ```
-    gem install bundler
-    ```
-  - Instalar dependências do banco de dados (SQLite, no caso) e o NodeJS (Rails depende do _JavaScript Runtime_):
-    ```
-    sudo apt-get install sqlite3 libsqlite3-dev nodejs-dev
-    ```
+### Template
+O template HTML utilizado faz uso do [Bootstrap](https://getbootstrap.com/) e é open-source: https://github.com/BlackrockDigital/startbootstrap-clean-blog
 
-  E agora estamos prontos para começar!
+## Referências técnicas
+Aqui vai algumas referências dos comandos principais utilizados durante o curso.
 
-  \*Créditos ao [tutorial da Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-with-rbenv-on-ubuntu-16-04)
+### Comandos utilizados no terminal
+Para aqueles que ainda não estão familiarizados com o terminal Linux, aqui vai algumas dicas!
 
-## Editores
-  Questão pessoal, recomendo 2 editores de texto antes de começarmos a mão na massa. Se tiver algum outro preferido, fique à vontade para utilizá-lo!
-  - [Atom](https://atom.io/) -> (Utilizarei este)
-  - [Sublime](https://www.sublimetext.com/)
+#### Lista de comandos principais do Ubuntu (que utilizaremos)
 
-Template utilizado: https://github.com/BlackrockDigital/startbootstrap-clean-blog
+Comando | Significado | Função
+--------|-------------|-------
+`ls` | list | Lista todos os arquivos e diretórios que se encontram no diretório atual
+`cd <directory>` | change directory | Troca o diretório atual para `<directory>`
+`cat <file>` | concatenate | Mostra o conteúdo de `<file>`
+`sudo <command>` | super user do | Utiliza `<command>` no modo Super Usuário (a.k.a. "Executar como admin")
+`apt-get install <package>` || Instala `<package>` no sitema
+`reset` || Reseta o terminal (útil para limpar a tela)
+
+\*Para abrir o terminal, procure na lista de aplicativos ou use o atalho `[Ctrl]+[Alt]+[T]`
+
+#### Lista de comandos Git utilizados (que tal aprender um pouquinho de Git também? :smile:)
+
+Comando | Função
+--------|-------
+git status | Checa as mudanças ocorridas nos arquivos desde o último _commit_
+git branch | Lista todas as _branches_ existentes e indica qual delas você está utilizando
+git checkout <branch> | Troca de sua _branch_ atual para `<branch>`
+git add <directory/file> | Adiciona `<directory/file>` à area de _Stage_
+git commit | Cria um novo _commit_ com as alterações que estão na área de _Stage_
+
+#### Lista de comandos Rails
+Comando | Atalho | Função
+--------|--------|-------
+`rails new <app_name>` || Cria uma nova aplicação Rails com o nome `<app_name>`
+`rails server` | `rails s` | Inicia o servidor
+`rails console` | `rails c` | Inicia o console da aplicação
+`rails generate <GENERATOR> <args>` | `rails g <GENERATOR> <args>` | Gera arquivos necessários de acordo com o `<GENERATOR>` escolhido
+
+##### Lista de Generators (apenas os que vamos utilizar)
+- controller
+- model
+- migration
