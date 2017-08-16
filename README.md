@@ -2,11 +2,12 @@
 Configurações utilizadas no curso:
 
 Ubuntu 16.04
-Ruby 2.4.1
-Rails 5.1.3
-SQLite 3.11.0
 
-Banco de dados: SQLite
+Ruby 2.4.1
+
+Rails 5.1.3
+
+SQLite 3.11.0
 
 ## Preparação do ambiente
 
