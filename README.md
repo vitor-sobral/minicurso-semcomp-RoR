@@ -123,6 +123,8 @@ Comando | Função
 `git checkout <branch>` | Troca de sua _branch_ atual para `<branch>`
 `git add <directory/file>` | Adiciona `<directory/file>` à area de _Stage_
 `git commit` | Cria um novo _commit_ com as alterações que estão na área de _Stage_
+`git pull <remote> <branch>` | Atualiza sua _branch_ atual com as informações novas de `<remote>/<branch>`
+`git push <remote> <branch>` | Joga suas alteraçes para o repositório remoto `<remote>/<branch>`
 
 #### Lista de comandos Rails
 Comando | Atalho | Função
