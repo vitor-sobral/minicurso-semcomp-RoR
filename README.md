@@ -22,7 +22,7 @@ sudo apt-get update; sudo apt-get install git
 #### Ruby
 Instalaremos o Ruby utilizando o gerenciador [_rbenv_](https://github.com/rbenv/rbenv):
 ```
-sudo apt-get install autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev
+sudo apt-get install autoconf bison build-essential libyaml-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev libssl1.0.0/xenial libssl-dev/xenial openssl/xenial libreadline-dev
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
 echo 'eval   "$(rbenv init -)"' >> ~/.bashrc
