@@ -9,7 +9,7 @@ Ruby 2.4.1
 
 Rails 5.1.3
 
-PostgreSQL 9.5.8
+SQLite 3.11.0
 
 ### Instalando programas necessários
 
@@ -78,14 +78,9 @@ ruby -v
   ```
   gem install bundler
   ```
-- Instalar dependências do banco de dados (PostgreSQL, no caso) e o NodeJS (Rails depende do _JavaScript Runtime_ do Node):
+- Instalar dependências do banco de dados (SQLite, no caso) e o NodeJS (Rails depende do _JavaScript Runtime_ do Node):
 ```
-sudo apt-get install postgresql postgresql-server-dev-all nodejs-dev
-```
-
-- Criar usuario no banco:
-```
-sudo -u postgres createuser -s <pguser>
+sudo apt-get install sqlite3 libsqlite3-dev nodejs-dev
 ```
 
 **E agora estamos prontos para começar!**
