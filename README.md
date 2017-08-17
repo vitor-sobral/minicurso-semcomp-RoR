@@ -22,12 +22,12 @@ sudo apt-get update; sudo apt-get install git
 #### Ruby
 Instalaremos o Ruby utilizando o gerenciador [_rbenv_](https://github.com/rbenv/rbenv):
 ```
-$ sudo apt-get install autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev
-$ git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-$ echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
-$ echo 'eval   "$(rbenv init -)"' >> ~/.bashrc
-$ source ~/.bashrc
-$ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+sudo apt-get install autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev
+git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+echo 'eval   "$(rbenv init -)"' >> ~/.bashrc
+source ~/.bashrc
+git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 ```
 
 Cheque se a instalação foi ocorrida com sucesso, usando `type rbenv`. O _output_ deve estar parecido com este:
@@ -81,6 +81,11 @@ ruby -v
 - Instalar dependências do banco de dados (PostgreSQL, no caso) e o NodeJS (Rails depende do _JavaScript Runtime_ do Node):
 ```
 sudo apt-get install postgresql postgresql-server-dev-all nodejs-dev
+```
+
+- Criar usuario no banco:
+```
+sudo -u postgres createuser -s <pguser>
 ```
 
 **E agora estamos prontos para começar!**
@@ -138,3 +143,9 @@ Comando | Atalho | Função
 - controller
 - model
 - migration
+
+## Deploy
+Heroku é uma ótima plataforma de hospedagem para aplicações Ruby on Rails. Vejamos como podemos fazer uso dele...
+
+* [Instalar ferramenta do Heroku](https://devcenter.heroku.com/articles/heroku-cli)
+* 
