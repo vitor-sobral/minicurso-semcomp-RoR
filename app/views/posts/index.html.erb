@@ -1,0 +1,9 @@
+<h1>POSTS</h1>
+
+<% @posts.each do |post| %>
+  <div>
+    Title: <%= post.title %>
+    Content: <%= post.content %>
+  </div>
+  <%= link_to "Edit", edit_post_path(post) %>
+<% end %>

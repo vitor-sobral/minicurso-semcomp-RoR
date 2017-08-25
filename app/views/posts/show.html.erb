@@ -1,0 +1,10 @@
+<h1>show</h1>
+
+<div>
+  <strong><%= @post.title %></strong>
+  <p>
+    <%= @post.content %>
+  </p>
+
+  <%= link_to "Remove post", post_path(@post), method: :delete %>
+</div>
